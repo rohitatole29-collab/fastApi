@@ -5,4 +5,4 @@ scrape_configs:
   - job_name: 'fastapi'
     metrics_path: /metrics
     static_configs:
-      - targets: ['<EC2-IP>:8000']
+      - targets: ['35.154.60.53:8000']
