@@ -33,3 +33,12 @@ async def get_users():
     Read user data from json file
     """
     return services.read_usersdata()
+
+from prometheus_client import Counter, generate_latest
+from fastapi import Response
+
+REQUEST_COUNT = Counter('request_count', 'Total Requests')
+
+@app.get("/metrics")
+def metrics():
+    return Response(generate_latest(), media_type="text/plain")
